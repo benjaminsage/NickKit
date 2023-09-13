@@ -7,14 +7,15 @@
 
 import SwiftUI
 
-struct NKButtonStyle: ButtonStyle {
+struct CapsuleButtonStyle: ButtonStyle {
     @Environment(\.isEnabled) var enabled
     
     @Binding var loading: Bool
+    
     var foreground: Color
     var background: Color
-    var spaced1: Bool
-    var spaced2: Bool
+    var spacedLeading: Bool
+    var spacedTrailing: Bool
     var height: CGFloat
     var font: Font
     
@@ -22,23 +23,23 @@ struct NKButtonStyle: ButtonStyle {
         loading: Binding<Bool> = .constant(false),
         foreground: Color = .primary,
         background: Color = .white,
-        spaced1: Bool = true,
-        spaced2: Bool = true,
+        spacedLeading: Bool = true,
+        spacedTrailing: Bool = true,
         height: CGFloat = 48,
         font: Font = .large
     ) {
         self._loading = loading
         self.foreground = foreground
         self.background = background
-        self.spaced1 = spaced1
-        self.spaced2 = spaced2
+        self.spacedLeading = spacedLeading
+        self.spacedTrailing = spacedTrailing
         self.height = height
         self.font = font
     }
     
     func makeBody(configuration: Configuration) -> some View {
         HStack {
-            if spaced1 { Spacer() }
+            if spacedLeading { Spacer() }
             configuration.label
                 .font(font)
                 .foregroundColor(!enabled ? .mediumGray : foreground)
@@ -49,7 +50,7 @@ struct NKButtonStyle: ButtonStyle {
                         LoadingView()
                     }
                 }
-            if spaced2 { Spacer() }
+            if spacedTrailing { Spacer() }
         }
         .onChange(of: configuration.isPressed) { newValue in
             if newValue {

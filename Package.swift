@@ -5,17 +5,29 @@ import PackageDescription
 
 let package = Package(
     name: "NickKit",
+    platforms: [
+        .iOS(.v16)
+    ],
     products: [
         .library(
             name: "NickKit",
             targets: ["NickKit"]
         ),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(
+            url: "https://github.com/airbnb/lottie-ios.git",
+            .upToNextMajor(from: "4.2.0")
+        )
+    ],
     targets: [
         .target(
             name: "NickKit",
-            dependencies: []
+            dependencies: [
+                .product(name: "Lottie", package: "lottie-ios")
+            ],
+            path: "Sources",
+            resources: [.process("Resources/Fonts")]
         ),
     ]
 )
