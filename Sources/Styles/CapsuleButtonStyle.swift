@@ -42,7 +42,7 @@ struct CapsuleButtonStyle: ButtonStyle {
             if spacedLeading { Spacer() }
             configuration.label
                 .font(font)
-                .foregroundColor(!enabled ? .mediumGray : foreground)
+                .foregroundColor(!enabled ? .darkGray : foreground)
                 .offset(y: -1)
                 .opacity(loading ? 0 : 1)
                 .overlay {

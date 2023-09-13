@@ -11,15 +11,19 @@ extension Font {
     static let logo = Font.custom(.zapf, size: 30)
     static let opening = Font.custom(.zapf, size: 40)
     
-    static let xs = Font.lab(11)
-    static let small = Font.lab(14)
-    static let medium = Font.lab(16)
-    static let large = Font.lab(18)
-    static let xl = Font.lab(20)
-    static let xxl = Font.lab(43)
+    static let xs = lab(11)
+    static let small = lab(14)
+    static let medium = lab(16)
+    static let large = lab(18)
+    static let xl = lab(20)
+    static let xxl = lab(43)
     
     static func lab(_ size: CGFloat) -> Font {
         Font.custom(.lab, size: size)
+    }
+    
+    static func zapf(_ size: CGFloat) -> Font {
+        Font.custom(.zapf, size: size)
     }
 }
 
