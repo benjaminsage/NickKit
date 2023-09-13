@@ -9,7 +9,7 @@ import SwiftUI
 
 extension Color {
     static let lightGray = Color(.displayP3, white: 244/255)
-    static let mediumGray = Color(.displayP3, white: 153/255)
+    static let darkGray = Color(.displayP3, white: 153/255)
     static let blurple = Color(.displayP3, red: 0, green: 0, blue: 254/255)
     static let grue = Color(.displayP3, red: 0/255, green: 203/255, blue: 47/255)
     static let instablue = Color(.displayP3, red: 0/255, green: 151/255, blue: 252/255)
