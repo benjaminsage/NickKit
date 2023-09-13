@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CapsuleButtonStyle: ButtonStyle {
+public struct CapsuleButtonStyle: ButtonStyle {
     @Environment(\.isEnabled) var enabled
     
     @Binding var loading: Bool
@@ -37,7 +37,7 @@ struct CapsuleButtonStyle: ButtonStyle {
         self.font = font
     }
     
-    func makeBody(configuration: Configuration) -> some View {
+    public func makeBody(configuration: Configuration) -> some View {
         HStack {
             if spacedLeading { Spacer() }
             configuration.label

@@ -8,12 +8,12 @@
 import SwiftUI
 import Lottie
 
-struct LottieView: UIViewRepresentable {
+public struct LottieView: UIViewRepresentable {
     var name: String
     var loop: Bool = true
     var completion: (() -> Void)?
     
-    func makeUIView(context: UIViewRepresentableContext<LottieView>) -> UIView {
+    public func makeUIView(context: UIViewRepresentableContext<LottieView>) -> UIView {
         let view = UIView()
                 
         let animationView = LottieAnimationView()
@@ -37,7 +37,7 @@ struct LottieView: UIViewRepresentable {
         return view
     }
 
-    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<LottieView>) { }
+    public func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<LottieView>) { }
 }
 
 struct LottieView_Previews: PreviewProvider {

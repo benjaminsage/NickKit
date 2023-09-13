@@ -8,28 +8,27 @@
 import SwiftUI
 
 extension Font {
-    static let logo = Font.custom(.zapf, size: 30)
-    static let opening = Font.custom(.zapf, size: 40)
+    public static let xs = lab(11)
+    public static let small = lab(14)
+    public static let medium = lab(16)
+    public static let large = lab(18)
+    public static let xl = lab(20)
+    public static let xxl = lab(43)
     
-    static let xs = lab(11)
-    static let small = lab(14)
-    static let medium = lab(16)
-    static let large = lab(18)
-    static let xl = lab(20)
-    static let xxl = lab(43)
+    public static let logo = custom(.zapf, size: 30)
+    public static let opening = custom(.zapf, size: 40)
     
-    static func lab(_ size: CGFloat) -> Font {
-        Font.custom(.lab, size: size)
+    public static func lab(_ size: CGFloat) -> Font {
+        custom(.lab, size: size)
     }
-    
-    static func zapf(_ size: CGFloat) -> Font {
-        Font.custom(.zapf, size: size)
+    public static func zapf(_ size: CGFloat) -> Font {
+        custom(.zapf, size: size)
     }
 }
 
 extension UIFont {
-    static let number = UIFont(name: "Lab Grotesque", size: 43)
-    static let phoneNumber = UIFont(name: "Lab Grotesque", size: 20)
+    static let number = UIFont(name: .lab, size: 43)
+    static let phoneNumber = UIFont(name: .lab, size: 20)
 }
 
 extension String {
@@ -47,11 +46,11 @@ extension UIFont {
     }()
     
     // Call this function to trigger the static initializer
-    static func ensureCustomFontsAreRegistered() {
+    public static func ensureCustomFontsAreRegistered() {
         _ = _fontRegistration
     }
     
-    static func registerCustomFonts() {
+    private static func registerCustomFonts() {
         guard let fontURLs = Bundle.module.urls(forResourcesWithExtension: "ttf", subdirectory: "Fonts") else {
             print("Failed to find font URLs")
             return

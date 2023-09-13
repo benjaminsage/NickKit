@@ -8,7 +8,7 @@
 import SwiftUI
 import AVKit
 
-struct AVPlayerControllerRepresented: UIViewControllerRepresentable {
+public struct AVPlayerControllerRepresented: UIViewControllerRepresentable {
     var player: AVPlayer
     
     init(player: AVPlayer) {
@@ -26,7 +26,7 @@ struct AVPlayerControllerRepresented: UIViewControllerRepresentable {
         }
     }
     
-    func makeUIViewController(context: Context) -> AVPlayerViewController {
+    public func makeUIViewController(context: Context) -> AVPlayerViewController {
         let controller = AVPlayerViewController()
         controller.player = player
         controller.showsPlaybackControls = false
@@ -39,7 +39,7 @@ struct AVPlayerControllerRepresented: UIViewControllerRepresentable {
         return controller
     }
     
-    func updateUIViewController(_ uiViewController: AVPlayerViewController, context: Context) {
+    public func updateUIViewController(_ uiViewController: AVPlayerViewController, context: Context) {
         if uiViewController.player == nil {
             uiViewController.player = player
         }
