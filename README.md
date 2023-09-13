@@ -1,3 +1,3 @@
 # NickKit
 
-A description of this package.
+A collection of beautiful SwiftUI components, designed by Nick Sarath.
