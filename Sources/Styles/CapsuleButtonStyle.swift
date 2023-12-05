@@ -17,7 +17,7 @@ public struct CapsuleButtonStyle: ButtonStyle {
     var leading: CGFloat?
     var trailing: CGFloat?
     var height: CGFloat
-    var font: Font
+    var font: Font?
     
     public init(
         loading: Binding<Bool> = .constant(false),
@@ -26,7 +26,7 @@ public struct CapsuleButtonStyle: ButtonStyle {
         leading: CGFloat? = .infinity,
         trailing: CGFloat? = .infinity,
         height: CGFloat = 48,
-        font: Font = .large
+        font: Font? = nil
     ) {
         self._loading = loading
         self.foreground = foreground
