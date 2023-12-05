@@ -19,7 +19,7 @@ public struct CapsuleButtonStyle: ButtonStyle {
     var height: CGFloat
     var font: Font
     
-    init(
+    public init(
         loading: Binding<Bool> = .constant(false),
         foreground: Color = .primary,
         background: Color = .white,
