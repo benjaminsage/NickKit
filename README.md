@@ -29,7 +29,7 @@ import NickKit
 struct ContentView: View {
     var body: some View {
         Button("Tap Me") {
-        	// action here
+            // action here
         }
         .buttonStyle(CapsuleButtonStyle(loading: .constant(false)))
     }
