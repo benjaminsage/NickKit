@@ -14,8 +14,8 @@ public struct CapsuleButtonStyle: ButtonStyle {
     
     var foreground: Color
     var background: Color
-    var spacedLeading: Bool
-    var spacedTrailing: Bool
+    var leading: CGFloat?
+    var trailing: CGFloat?
     var height: CGFloat
     var font: Font
     
@@ -23,23 +23,24 @@ public struct CapsuleButtonStyle: ButtonStyle {
         loading: Binding<Bool> = .constant(false),
         foreground: Color = .primary,
         background: Color = .white,
-        spacedLeading: Bool = true,
-        spacedTrailing: Bool = true,
+        leading: CGFloat? = .infinity,
+        trailing: CGFloat? = .infinity,
         height: CGFloat = 48,
         font: Font = .large
     ) {
         self._loading = loading
         self.foreground = foreground
         self.background = background
-        self.spacedLeading = spacedLeading
-        self.spacedTrailing = spacedTrailing
+        self.leading = leading
+        self.trailing = trailing
         self.height = height
         self.font = font
     }
     
     public func makeBody(configuration: Configuration) -> some View {
         HStack {
-            if spacedLeading { Spacer() }
+            Spacer(minLength: leading)
+            
             configuration.label
                 .font(font)
                 .foregroundColor(!enabled ? .darkGray : foreground)
@@ -50,7 +51,8 @@ public struct CapsuleButtonStyle: ButtonStyle {
                         LoadingView()
                     }
                 }
-            if spacedTrailing { Spacer() }
+            
+            Spacer(minLength: trailing)
         }
         .onChange(of: configuration.isPressed) { newValue in
             if newValue {
