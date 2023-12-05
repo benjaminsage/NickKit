@@ -39,7 +39,8 @@ public struct CapsuleButtonStyle: ButtonStyle {
     
     public func makeBody(configuration: Configuration) -> some View {
         HStack {
-            Spacer(minLength: leading)
+            Spacer()
+                .frame(width: leading)
             
             configuration.label
                 .font(font)
@@ -52,7 +53,8 @@ public struct CapsuleButtonStyle: ButtonStyle {
                     }
                 }
             
-            Spacer(minLength: trailing)
+            Spacer()
+                .frame(width: trailing)
         }
         .onChange(of: configuration.isPressed) { newValue in
             if newValue {
