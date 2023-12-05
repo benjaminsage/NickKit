@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  CapsuleButtonStyle.swift
+//
 //
 //  Created by Benjamin Sage on 9/12/23.
 //
