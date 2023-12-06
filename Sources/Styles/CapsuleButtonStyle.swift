@@ -17,6 +17,7 @@ public struct CapsuleButtonStyle: ButtonStyle {
     var leading: CGFloat?
     var trailing: CGFloat?
     var height: CGFloat
+    var width: CGFloat?
     var font: Font?
     
     public init(
@@ -26,6 +27,7 @@ public struct CapsuleButtonStyle: ButtonStyle {
         leading: CGFloat? = .infinity,
         trailing: CGFloat? = .infinity,
         height: CGFloat = 48,
+        width: CGFloat? = nil,
         font: Font? = nil
     ) {
         self._loading = loading
@@ -34,6 +36,7 @@ public struct CapsuleButtonStyle: ButtonStyle {
         self.leading = leading
         self.trailing = trailing
         self.height = height
+        self.width = width
         self.font = font
     }
     
@@ -61,7 +64,7 @@ public struct CapsuleButtonStyle: ButtonStyle {
                 UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
             }
         }
-        .frame(height: height)
+        .frame(width: width, height: height)
         .background(!enabled ? .lightGray : background)
         .clipShape(Capsule())
         .scaleEffect(configuration.isPressed ? 1.05 : 1.0)
